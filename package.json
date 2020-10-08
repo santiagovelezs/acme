@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "ACME Hotel UAM 2020",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/santiagovelezs/acme"
+  },
   "scripts": {
     "start": "nodemon src/index.js --exec babel-node"
   },
