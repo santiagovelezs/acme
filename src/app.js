@@ -7,17 +7,15 @@ import userRoutes from './routes/user.routes'
 import roomRoutes from './routes/room.routes'
 import { createAdmin } from './libs/apiSetup'
 
-
 const app = express()
 createAdmin()
 
 app.set("port", process.env.PORT || 3000)
 
-app.use(express.json())
-app.use(morgan('dev'))
 app.use(cors())
+app.use(morgan('dev'))
 app.use(helmet())
-app.use(express.urlencoded({ extended: false }))
+app.use(express.json());
 
 app.get('/', (req, res) => {
     res.json('welcome to the ACME API')

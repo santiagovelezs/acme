@@ -54,7 +54,7 @@ export const getUserById = async (req, res) => {
 }
 
 export const updateUserById = async (req, res) => {
-    const updatedUser = await Room.findByIdAndUpdate(
+    const updatedUser = await User.findByIdAndUpdate(
         req.params.userId,
         req.body,
         {

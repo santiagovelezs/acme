@@ -3,7 +3,7 @@ import User from "../models/User"
 import jwt from "jsonwebtoken"
 import config from "../config"
 
-const signUp = async (req, res) => {
+const signUp = async (req, res) => {  
     try {      
       const { 
           name, 
@@ -16,7 +16,7 @@ const signUp = async (req, res) => {
       const newUser = new User({
         name,
         email,
-        password: await User.encryptPassword(password),
+        password: await User.encryptPassword("password"),
         gender,
         birth_date,
         city,
