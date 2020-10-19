@@ -55,8 +55,7 @@ const signUp = async (req, res) => {
   
       const token = jwt.sign({ id: userFound._id }, config.SECRET, {
         expiresIn: '1h'
-      });
-  
+      });  
       res.json({ token })
     } catch (error) {
       console.log(error)
