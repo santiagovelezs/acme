@@ -2,9 +2,11 @@ import express from 'express'
 import helmet from 'helmet'
 import cors from 'cors'
 import morgan from 'morgan'
+import path from 'path'
 import authRoutes from './routes/auth.routes'
 import userRoutes from './routes/user.routes'
 import roomRoutes from './routes/room.routes'
+import photoRoutes from './routes/photo.routes'
 import { createAdmin } from './libs/apiSetup'
 
 const app = express()
@@ -25,5 +27,7 @@ app.get('/', (req, res) => {
 app.use("/acme/api/auth", authRoutes)
 app.use("/acme/api/users", userRoutes)
 app.use("/acme/api/rooms", roomRoutes)
+app.use("/acme/api/photos", photoRoutes)
+app.use("/uploads", express.static(path.resolve('uploads')))
 
 export default app
