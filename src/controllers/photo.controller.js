@@ -1,12 +1,12 @@
 import Photo from '../models/Photo'
 
-export const createPhoto = async (req,res) => {
+export const createPhoto = async (req, res) => {
     try{
-        const { title, path, user} = req.body
+        const { title, user } = req.body
         
         const photo = new Photo({
-            title,
-            path,
+            title, 
+            path:req.file.path,           
             user      
         })        
         const savedPhoto = await photo.save()
@@ -19,5 +19,10 @@ export const createPhoto = async (req,res) => {
     }catch(error){
         console.log(error)
     }
+}
+
+export const getPhotos = async (req, res) => {
+    const photos = await Photo.find()
+    return res.json(photos)
 }
 

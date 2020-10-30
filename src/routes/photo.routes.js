@@ -7,5 +7,6 @@ import multer from '../libs/multer'
 //router.get('/', photoController.getPhotos)
 
 router.post('/', multer.single('image'), photoController.createPhoto)
+router.get('/', photoController.getPhotos)
 
 export default router
