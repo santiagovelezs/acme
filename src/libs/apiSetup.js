@@ -24,3 +24,25 @@ export const createAdmin = async () => {
         console.log(error)
     }
 }
+
+export const createCommonUser = async () => {
+    try{
+        const user = await User.findOne({ email: 'user@test' })
+
+        if(!user){
+            await User.create({
+                name: "Test",
+                email: "user@test",
+                password: await bcrypt.hash('secret', 10),
+                role: ROLES.USER,
+                birth_date: "1900-01-01"
+            })
+            console.log('User was created')
+        }
+        else{
+            console.log('User: user@test')
+        }
+    }catch(error){
+        console.log(error)
+    }
+}
